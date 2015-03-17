@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Overviewer Admin{% endblock %}
+
+{% block extra_css %}
+    <link href='/static/css/base.css' rel='stylesheet' type='text/css' />
+{% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript" src="/static/js/admin.js"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <h2>Overviewer Admin</h2>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button id="find" type="submit" class="btn btn-lg btn-success biggerbutton tiny-margin">
+                            Find Overviewer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button id="process" type="submit" class="btn btn-lg btn-danger biggerbutton tiny-margin">
+                            Start Processing
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4"></div>
+
+            <div class="text-right">
+            {% for name in names %}
+                {{ name }},
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

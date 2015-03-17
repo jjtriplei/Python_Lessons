@@ -5,7 +5,6 @@ from flask import Flask, request, flash, url_for, redirect, \
 
 # Do not modify
 app = Flask(__name__)
-app.config.from_pyfile('flaskapp.cfg')
 # End Do not Modify
 
 
@@ -14,12 +13,26 @@ app.config.from_pyfile('flaskapp.cfg')
 def minecraft_index():
     return render_template('Craft.html')
 
+@app.route('/admin')
+def admin_main():
+    # Example of how to pass data to a template and loop over it
+    return render_template('admin.html', names=["Josh", "Joe", "Scruffy"])
 
 
 
+@app.route('/find', methods=['POST'])
+def find_overviewer():
+    # Code here to start find overviewer process
+    print "Yup"
+
+@app.route('/process', methods=["POST"])
+def start_process():
+    # Code here to start overviewer process
+    print "Yup"
 
 
-# This route is setup to server static files (ie: Images, CSS, Video ... etc)
+
+# This route is setup to serve static files (ie: Images, CSS, Video ... etc)
 # Do not modify
 @app.route('/<path:resource>')
 def serveStaticResource(resource):

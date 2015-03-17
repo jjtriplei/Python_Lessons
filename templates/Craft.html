@@ -1,11 +1,15 @@
+{% extends "base.html" %}
+{% block title %} Automated Overviewer{% endblock %}
+
+{% block body %}
+
+    <h1>Okay, I'm ready to play Minecraft now</h1>
 
 
-<!doctype html>
-<title>Hello from Flask</title>
-{% if name %}
-  <h1>Hello {{ name }}!</h1>
-{% else %}
-  <h1>Okay, I'm ready to play Minecraft now</h1>
-{% endif %}
+    <a href="admin">
+        <img src="/static/Untitled.jpg">
+    </a>
 
-<IMG SRC="\static\Untitled.jpg">
+
+
+{% endblock %}
