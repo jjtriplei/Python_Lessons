@@ -32,14 +32,23 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-12 tiny-margin">
+                        <h4>Files in The Directory: </h4>
+                        {% for name in names %}
+                            {% if name[0] != '.' %}
+                                <b class="accent">{{ name[0:1]|title }}</b>{{ name[1:] }}<br>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+
             </div>
             <div class="col-md-4"></div>
 
-            <div class="text-right">
-            {% for name in names %}
-                {{ name }},
-            {% endfor %}
-            </div>
+
+
         </div>
     </div>
 {% endblock %}

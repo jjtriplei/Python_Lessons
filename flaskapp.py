@@ -8,6 +8,9 @@ import os
 app = Flask(__name__)
 # End Do not Modify
 
+# This is a global variable .... usually not a good idea to set these.
+# I'm doing it for a reason
+SCAN_PATH = "/usr/bin/"
 
 # Index of the site (ie: The first page that will show up when the site is visited.
 @app.route('/')
@@ -16,8 +19,10 @@ def minecraft_index():
 
 @app.route('/admin')
 def admin_main():
+    dirs = os.listdir(SCAN_PATH)
+
     # Example of how to pass data to a template and loop over it
-    return render_template('admin.html', names=["Josh", "Joe", "Scruffy"])
+    return render_template('admin.html', names=dirs)
 
 @app.route('/boogerballs')
 def task_5():
@@ -28,9 +33,7 @@ def task_5():
 @app.route('/find', methods=['POST'])
 def find_overviewer():
     # Code here to start find overviewer process
-
-    path = "/usr/bin/"
-    dirs = os.listdir(path)
+    dirs = os.listdir(SCAN_PATH)
 
     if "overviewer.py" in dirs:
         print ("Yes")
